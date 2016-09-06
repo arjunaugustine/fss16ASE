@@ -1,6 +1,6 @@
 from __future__ import division, print_function
 from random import randint
-
+import sys
 
 def has_duplicates(bdays):
     return len(bdays) != len(set(bdays))
@@ -26,7 +26,14 @@ def get_stat(n_st, n_times):
 
 
 num_students = 23
-num_times = 100
+
+if len(sys.argv)<2:
+    print ('Usage : python <file> <number of simulations>')
+    sys.exit(0)
+
+num_times = int(sys.argv[1])
+if num_times < 0:
+    raise ValueError("Number of simulations cannot be negative\n")
 print('number of students: %d' % num_students)
 print('number of times: %d' % num_times)
 p = get_stat(num_students, num_times)/num_times * 100
