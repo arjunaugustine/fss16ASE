@@ -1,6 +1,6 @@
 #! /usr/bin/python
 import random
-
+import copy, math, sys
 
 def shuffle(lst):
     """
@@ -8,6 +8,14 @@ def shuffle(lst):
     """
     random.shuffle(lst)
     return lst
+
+
+def say(lst):
+  """
+  Print whithout going to new line
+  """
+  print lst,
+  sys.stdout.flush()
 
 
 class O:
@@ -75,6 +83,12 @@ class Point(O):
   def __eq__(self, other):
     return self.decisions == other.decisions
 
+  def clone(self):
+    new = Point(self.decisions)
+    new.objectives = self.objectives
+    new.energy = self.energy
+    return new
+
 
 class Problem(O):
   """
@@ -101,11 +115,12 @@ class Problem(O):
     return point.objectives
 
   @staticmethod
-  def is_valid(self, point):
+  def is_valid(point):
     """
     Check if point lies in valid range. All points valid in this case.
+    :param self:
     :param point:
-    :return: True
+    :return:
     """
     [x1, x2, x3, x4, x5, x6] = point.decisions
     if x1 + x2 -2 < 0: return False
@@ -122,22 +137,50 @@ class Problem(O):
     :return: generated point
     """
     while True:
-      mypoint = Point([random.uniform(d.low, d.high) for d in self.decisions])
-      if self.is_valid(self, mypoint):
+      mypoint = Point([random.randint(d.low, d.high) for d in self.decisions])
+      if self.is_valid(mypoint):
         self.evaluate(mypoint)
         self.points.append(mypoint)
         return mypoint
 
-  def change_decision(self, point, decision):
+  def change_decision(self, point, c):
     """
     Change a random decision in the point and return a valid point
     :param point:
-    :return: Valid changed point
+    :param c: decision
+    :return:
     """
+    mypoint = point.clone()
     while True:
-      mypoint = point
+      mypoint.decisions = point.decisions
+      mypoint.decisions[int(c.name[1])-1] = random.randint(c.low, c.high)
+      if self.is_valid(mypoint):
+        self.evaluate(mypoint)
+        self.points.append(mypoint)
+        say('!')
+      else:
+        say('.')
+      return mypoint
 
-    return point
+  def maximize_decision_score(self, point, c):
+    """
+    Change decision c in point that maximizes score for point
+    :param point:
+    :param c:
+    :return:
+    """
+    mypoint = point.clone()
+    bestpoint = point
+    id = int(c.name[1])-1
+    for val in xrange(int(math.ceil(c.low)), int(math.floor(c.high))):
+      mypoint.decisions[id] = val
+      if self.is_valid(mypoint):
+        if mypoint.energy > bestpoint.energy:
+          bestpoint = mypoint
+    print_char = ',' if bestpoint.energy is point.energy else '|'
+    say(print_char)
+    return bestpoint
+
 
 class MaxWalkSat(O):
   """
@@ -158,21 +201,39 @@ class MaxWalkSat(O):
     O.__init__(self)
     self.Prob = problem()
     self.P = 0.5
-    self.MAX_TRIES = 100
-    self.MAX_CHANGES = 100
+    self.MAX_TRIES = 50
+    self.MAX_CHANGES = 50
     self.best = self.Prob.generate_one()
+
+  def update_best(self, point):
+    if point.energy > self.best.energy:
+      say('+')
+      self.best = point
 
   def run(self, problem):
     for i in xrange(self.MAX_TRIES):
-      solution = problem.generate_one() # Generate and evaluate a new point.
+      # print 'i =', i,
+      say(format(self.best.energy, '4d'))
+      solution = problem.generate_one()  # Generate and evaluate a new point.
+      say(format(solution.energy, '4d'))
+      say('')
+      self.update_best(solution)
       for j in xrange(self.MAX_CHANGES):
+        # print 'j =', j,
         c = random.choice(problem.decisions)
-        print c
-        if P < random.random():
+        # print c
+        if self.P < random.random():
           solution = problem.change_decision(solution, c)
-          solution.decisions[int(c.name[1])-1] = random.uniform(c.low, c.high)
-          print solution.decisions
+          self.update_best(solution)
+        else:
+          solution = problem.maximize_decision_score(solution, c)
+          self.update_best(solution)
+      # say()
+      print ""
+    return self.best
+
 
 P = Problem()
 MWS = MaxWalkSat(Problem)
-MWS.run(P)
+print MWS.run(P)
+
