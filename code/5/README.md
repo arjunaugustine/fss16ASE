@@ -1,0 +1,19 @@
+# fss16dst
+Code for week 5
+
+# MaxWalkSat
+
+Read the [lecture](mws.md) on Max Walk Sat.
+
+Code  MaxWalkSat  for the
+[Osyczka2](pdf/moeaProblems.pdf) model.
+
+Do not be clever. This is throw away code. As quick
+and as dirty as you like.
+
+Use the same energy calcs as for SA.
+
+Try and make a report that looks like the output from SA.
+
+# Output
+
