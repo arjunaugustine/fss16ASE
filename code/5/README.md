@@ -17,3 +17,5 @@ Try and make a report that looks like the output from SA.
 
 # Output
 
+![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/5/Screen%20Shot%202016-10-04%20at%209.25.40%20PM.png)
+![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/5/Screen%20Shot%202016-10-04%20at%209.26.34%20PM.png)
