@@ -107,23 +107,19 @@ class Problem(O):
 
   @staticmethod
   def evaluate(point):
-    assert False # Problem should not be instantiated separately. The parent evaluate method would override this.
+    assert False, 'Problem should not be instantiated separately. ' \
+                  'The parent evaluate method would override this.'
     return point.objectives
 
   @staticmethod
   def is_valid(self, point):
     """
-    Checks whether the decisions lie in the low to high limits.
     :param self:
     :param point:
     :return:
     """
-    print " BLOODDDDYY HEELLLL FUUUCKCKKKKERRRR"
-    # print self
-    # print point
-    for i,d in enumerate(point.decisions):
-      if d < self.decisions[i].low or d > self.decisions[i].high:
-        return False
+    assert False, 'Problem should not be instantiated separately. ' \
+                  'The parent is_valid method would override this.'
     return True
 
   def generate_one(self, retries=500):
@@ -184,22 +180,16 @@ class Osyczka2(Problem):
     """
     [x1, x2, x3, x4, x5, x6] = point.decisions
     if x1 + x2 -2 < 0:
-      # print '1'
       return False
     if 6 - x1 - x2 < 0:
-      # print '2'
       return False
     if 2 - x2 + x1 < 0:
-      # print '3'
       return False
     if 2 - x1 + 3*x2 < 0:
-      # print '4'
       return False
     if 4 - (x3 - 3)**2 - x4 < 0:
-      # print '5'
       return False
     if (x5 - 3)**3 + x6 - 4 < 0:
-      # print '6'
       return False
     for i, d in enumerate(point.decisions):
       if d < self.decisions[i].low or d > self.decisions[i].high:
@@ -208,46 +198,8 @@ class Osyczka2(Problem):
     return True
     # return Problem.is_valid(Problem, point)
 
-  def change_decision(self, point, c):
-    """
-    Change a random decision in the point and return a valid point
-    :param point:
-    :param c: decision
-    :return:
-    """
-    mypoint = point.clone()
-    while True:
-      mypoint.decisions = point.decisions
-      mypoint.decisions[int(c.name[1])-1] = random.randint(c.low, c.high)
-      if self.is_valid(self, mypoint):
-        self.evaluate(self, mypoint)
-        self.points.append(mypoint)
-        say('!')
-      else:
-        say('.')
-      return mypoint
 
-  def maximize_decision_score(self, point, c):
-    """
-    Change decision c in point that maximizes score for point
-    :param point:
-    :param c:
-    :return:
-    """
-    mypoint = point.clone()
-    bestpoint = point
-    id = int(c.name[1])-1
-    for val in xrange(int(math.ceil(c.low)), int(math.floor(c.high))):
-      mypoint.decisions[id] = val
-      if self.is_valid(self, mypoint):
-        if mypoint.energy > bestpoint.energy:
-          bestpoint = mypoint
-    print_char = ',' if bestpoint.energy is point.energy else '|'
-    say(print_char)
-    return bestpoint
-
-
-class MaxWalkSat(O):
+def mws(model, max_tries=25, max_changes=25, p=0.5):
   """
   FOR i = 1 to max-tries DO
   solution = random assignment
@@ -262,39 +214,71 @@ class MaxWalkSat(O):
     FI
   RETURN failure, best solution found
   """
-  def __init__(self, model):
-    O.__init__(self)
-    self.Model = model()
-    self.P = 0.5
-    self.MAX_TRIES = 25
-    self.MAX_CHANGES = 25
-    self.best = self.Model.generate_one()
+  best = model.generate_one()
 
-  def update_best(self, point):
-    if point.energy > self.best.energy:
+  def update_best(point, best):
+    if point.energy > best.energy:
       say('+')
-      self.best = point
+      return point
+    return best
 
-  def run(self, model):
-    for i in xrange(self.MAX_TRIES):
-      say(format(self.best.energy, '4d'))
-      solution = model.generate_one()  # Generate and evaluate a new point.
-      say(format(solution.energy, '4d'))
-      say('')
-      self.update_best(solution)
-      for j in xrange(self.MAX_CHANGES):
-        c = random.choice(model.decisions)
-        if self.P < random.random():
-          solution = model.change_decision(solution, c)
-          self.update_best(solution)
-        else:
-          solution = model.maximize_decision_score(solution, c)
-          self.update_best(solution)
-      print ""
-    return self.best
+  def change_decision(point, c):
+    """
+    Change a random decision in the point and return a valid point
+    :param point:
+    :param c: decision
+    :return:
+    """
+    mypoint = point.clone()
+    while True:
+      mypoint.decisions = point.decisions
+      mypoint.decisions[int(c.name[1]) - 1] = random.randint(c.low, c.high)
+      if model.is_valid(model, mypoint):
+        model.evaluate(model, mypoint)
+        model.points.append(mypoint)
+        say('!')
+      else:
+        say('.')
+      return mypoint
+
+  def maximize_decision_score(point, c):
+    """
+    Change decision c in point that maximizes score for point
+    :param point:
+    :param c:
+    :return:
+    """
+    mypoint = point.clone()
+    bestpoint = point
+    id = int(c.name[1]) - 1
+    for val in xrange(int(math.ceil(c.low)), int(math.floor(c.high))):
+      mypoint.decisions[id] = val
+      if model.is_valid(model, mypoint):
+        if mypoint.energy > bestpoint.energy:
+          bestpoint = mypoint
+    print_char = ',' if bestpoint.energy is point.energy else '|'
+    say(print_char)
+    return bestpoint
+
+  for i in xrange(max_tries):
+    say(format(best.energy, '4d'))
+    solution = model.generate_one()  # Generate and evaluate a new point.
+    say(format(solution.energy, '4d'))
+    say('')
+    best = update_best(solution, best)
+    for j in xrange(max_changes):
+      c = random.choice(model.decisions)
+      if p < random.random():
+        solution = change_decision(solution, c)
+        best = update_best(solution, best)
+      else:
+        solution = maximize_decision_score(solution, c)
+        best = update_best(solution, best)
+    print ""
+  return best
 
 
 P = Osyczka2()
-MWS = MaxWalkSat(Osyczka2)
-print MWS.run(P)
+# MWS = MaxWalkSat(Osyczka2)
+print mws(P)
 print ""
