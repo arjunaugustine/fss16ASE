@@ -12,6 +12,8 @@ An abstract State-Machine for the app - Aard Dictionary, a dictionary and online
 
 ## Baseline Results:
 
+
 ## Related Work
+MobiGUITAR was compared with two tools for Android testing - Monkey and Dynodroid. MobiGUITAR produces several types of artifacts - crash reports, finite state machine models, GUI sequences and also executable JUnit test-cases. However, Monkey produces only an Android LogCat report and Dynodroid produces a LogCat report and a code coverage report. Also when it comes to configurability MobiGUITAR is superior bcause it even lets you choose a whitelist of input values to be assigned with input widgets. Both Monkey and Dynodroid could detect only 3 bugs when MobiGUITAR detected 10 bugs.
 
 ## Scope for improvement :
