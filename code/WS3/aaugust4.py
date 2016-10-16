@@ -229,8 +229,8 @@ def bdom(problem, one, two):
   Return if one dominates two based
   on binary domintation
   """
-  objs_one = problem.eval(one)
-  objs_two = problem.eval(two)
+  objs_one = problem.evaluate(one)
+  objs_two = problem.evaluate(two)
   dominates = False
   for i, obj in enumerate(problem.objectives):
     better = lt if obj.do_minimize else gt
