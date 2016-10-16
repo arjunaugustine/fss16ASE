@@ -26,10 +26,25 @@ For the above loop to work, each model (e.g. Schaffer) has to be class that prod
   
 ##Outputs
 
-![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/5/Screen%20Shot%202016-10-04%20at%209.25.40%20PM.png)
-![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/5/Screen%20Shot%202016-10-04%20at%209.26.34%20PM.png)
+![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/6/Screen%20Shot%202016-10-15%20at%209.15.57%20PM.png)
 
-Making sense of MWS output:
+![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/6/Screen%20Shot%202016-10-15%20at%209.15.03%20PM.png)
+
+![alt tag](https://github.com/arjunaugustine/fss16ASE/blob/master/code/6/Screen%20Shot%202016-10-15%20at%209.15.35%20PM.png)
+
+###Making sense of SA output:
+
+1.  The first column indicates the current best solution.
+
+2.  The second column indicates the energy of the neighbor solution selected in this iteration.
+
+3.  A '!' indicates a new maxima. A '!' in the line adds to line length.
+
+4.  A '+' indicates we got a better neighbor, a '?' indicates we jumped to a neighbor with lower energy, and a '.' indicates there was no jump and the neighbor was dropped.
+
+5.  The class printed at the bottom is the best solution point.
+
+###Making sense of MWS output:
 
 1.  The first column indicates the current best solution.
 
