@@ -106,23 +106,23 @@ class Problem(O):
     self.objectives = objectives
 
   @staticmethod
-  def evaluate(point):
+  def eval(point):
     assert False, 'Problem should not be instantiated separately. ' \
                   'The parent evaluate method would override this.'
     return point.objectives
 
   @staticmethod
-  def is_valid(self, point):
+  def ok(self, point):
     """
     :param self:
     :param point:
     :return:
     """
     assert False, 'Problem should not be instantiated separately. ' \
-                  'The parent is_valid method would override this.'
+                  'The parent ok method would override this.'
     return True
 
-  def generate_one(self, retries=500):
+  def any(self, retries=500):
     """
     Generate a valid random point, evaluate it and add it to points list.
     :return: generated point
@@ -131,11 +131,10 @@ class Problem(O):
     for _ in xrange(retries):
       point = Point([random.randint(d.low, d.high) for d in self.decisions])
       # print "", "", point
-      if self.is_valid(self, point):
-        self.evaluate(self, point)
+      if self.ok(self, point):
+        self.eval(self, point)
         self.points.append(point)
         return point
-    print "Fuck this"
     # sys.exit()
     raise RuntimeError("Exceeded max runtimes of %d" % retries)
 
@@ -162,16 +161,20 @@ class Osyczka2(Problem):
     Problem.__init__(self, decisions, objectives)
 
   @staticmethod
-  def evaluate(self, point):
+  def eval(self, point):
     (x1, x2, x3, x4, x5, x6) = point.decisions
     f1 = -1*(25*((x1-2)**2) + (x2-2)**2 + (x3-1)**2 * (x4-4)**2 + (x5-1)**2)
     f2 = x1**2 + x2**2 + x3**2 + x4**2 + x5**2 + x6**2
     point.objectives = [f1, f2]
-    point.energy = f1 + f2
+
+    def minimize(i):
+      return -1 if self.objectives[i].domin else 1
+
+    point.energy = f1*minimize(0) + f2*minimize(1)
     return point.objectives
 
   @staticmethod
-  def is_valid(self, point):
+  def ok(self, point):
     """
     Check if point lies in valid range. All points valid in this case.
     :param self:
@@ -196,7 +199,7 @@ class Osyczka2(Problem):
         print i, d, self.decisions[i].low, self.decisions[i].high
         return False
     return True
-    # return Problem.is_valid(Problem, point)
+    # return Problem.ok(Problem, point)
 
 
 def mws(model, max_tries=25, max_changes=25, p=0.5):
@@ -214,7 +217,7 @@ def mws(model, max_tries=25, max_changes=25, p=0.5):
     FI
   RETURN failure, best solution found
   """
-  best = model.generate_one()
+  best = model.any()
 
   def update_best(point, best):
     if point.energy > best.energy:
@@ -233,8 +236,8 @@ def mws(model, max_tries=25, max_changes=25, p=0.5):
     while True:
       mypoint.decisions = point.decisions
       mypoint.decisions[int(c.name[1]) - 1] = random.randint(c.low, c.high)
-      if model.is_valid(model, mypoint):
-        model.evaluate(model, mypoint)
+      if model.ok(model, mypoint):
+        model.eval(model, mypoint)
         model.points.append(mypoint)
         say('!')
       else:
@@ -253,7 +256,7 @@ def mws(model, max_tries=25, max_changes=25, p=0.5):
     id = int(c.name[1]) - 1
     for val in xrange(int(math.ceil(c.low)), int(math.floor(c.high))):
       mypoint.decisions[id] = val
-      if model.is_valid(model, mypoint):
+      if model.ok(model, mypoint):
         if mypoint.energy > bestpoint.energy:
           bestpoint = mypoint
     print_char = ',' if bestpoint.energy is point.energy else '|'
@@ -262,7 +265,7 @@ def mws(model, max_tries=25, max_changes=25, p=0.5):
 
   for i in xrange(max_tries):
     say(format(best.energy, '4d'))
-    solution = model.generate_one()  # Generate and evaluate a new point.
+    solution = model.any()  # Generate and evaluate a new point.
     say(format(solution.energy, '4d'))
     say('')
     best = update_best(solution, best)
