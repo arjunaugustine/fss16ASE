@@ -10,6 +10,9 @@ A finite-state machine (FSM) or finite-state automaton (FSA, plural: automata), 
 ###[Breadth First Traversal:](https://en.wikipedia.org/wiki/Breadth-first_search)
 Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.
 
+###[EMMA:](http://emma.sourceforge.net/userguide_single/userguide.html)
+EMMA is a tool for measuring coverage of Java software. Such a tool is essential for detecting dead code and verifying which parts of your application are actually exercised by your test suite and interactive use.
+
 ## Motivation:
 People adopt mobile platforms largely because of the apps they offer. Hence, quality assurance techniques like Software Testing is very important. Even though there are different techniques for testing mobile apps they are mostly stateless and never handled security. This is a big limitation because mobile apps are extremely state sensitive and have enhanced security. So there is a need for novel techniques. 
 
