@@ -1,6 +1,8 @@
 # MobiGUITAR Automated Model-Based Testing of Mobile Apps
 
 ## Key Words
+###Event Flow Graph (EFG): 
+A graph representation of a GUI in which vertices represent events and an edge from event e1 to event e2 signifies that e2 can be performed immediately after e1.
 
 ## Motivation:
 People adopt mobile platforms largely because of the apps they offer. Hence, quality assurance techniques like Software Testing is very important. Even though there are different techniques for testing mobile apps they are mostly stateless and never handled security. This is a big limitation because mobile apps are extremely state sensitive and have enhanced security. So there is a need for novel techniques. 
