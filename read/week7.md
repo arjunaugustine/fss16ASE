@@ -7,6 +7,9 @@ A graph representation of a GUI in which vertices represent events and an edge f
 ###[Finite State Machine:](https://en.wikipedia.org/wiki/Finite-state_machine)
 A finite-state machine (FSM) or finite-state automaton (FSA, plural: automata), or simply a state machine, is a mathematical model of computation used to design both computer programs and sequential logic circuits. It is conceived as an abstract machine that can be in one of a finite number of states.
 
+###[Breadth First Traversal:](https://en.wikipedia.org/wiki/Breadth-first_search)
+Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.
+
 ## Motivation:
 People adopt mobile platforms largely because of the apps they offer. Hence, quality assurance techniques like Software Testing is very important. Even though there are different techniques for testing mobile apps they are mostly stateless and never handled security. This is a big limitation because mobile apps are extremely state sensitive and have enhanced security. So there is a need for novel techniques. 
 
