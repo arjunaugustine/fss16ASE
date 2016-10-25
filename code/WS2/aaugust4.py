@@ -1,3 +1,4 @@
+#! /usr/bin/python
 from __future__ import print_function, division
 import random
 
@@ -250,3 +251,8 @@ fsm(f, 4, 25)
 f.run(100)
 
 # TODO 9 : Suggest an upgrade to the model by adding more transitions/states and check out the results
+"""
+We can also have a state 'Inside' from which the possible transitions are walk to outside.
+We can also reach inside only from outside via walking.
+"""
+
