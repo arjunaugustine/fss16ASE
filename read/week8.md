@@ -21,7 +21,7 @@ The currently used test sequences for the Automated test tool monkey are very la
 An abstract State-Machine for the app - Aard Dictionary, a dictionary and online Wikipedia reader is shown in the paper. It shows different states and transitions between them making it easy to identify the different transitions which led to termnation of the app.
 
 ## Baseline Results:
-Four apps were selected for testing MobiGUITAR - Aard Dictionary, Tomdroid, Book Catalogue and WordPress. All these apps are open source and are maintained by an active community of developers. MobiGuitar detected 10 bugs in total out of which one is related to Activity and three concurrency. The activity bug was because of the incorrect management of the life cycle of the activity. Few bugs were because of bad inputs. There were 2 bugs because of incorrect code reuse. It also detected bugs depended on programming mechanisms that aren’t traditional but are typical of Android apps.
+The top 1,000 Google play apps were tested using Sapienz. It found 558 unique crashes. The crashing behaviour has been verified on real Android devices (as well as Android emulators). 14 have been confirmed to be genuine, previously undetected, faults, 6 of which have already been confirmed as fixed by their developers. These results demonstrate that Sapienz is a practical tool for Android developers as well as for researchers. Sapienz significantly outperforms (with large effect size) both the state-of-the-art technique Dynodroid and the widely-used tool, Android Monkey, in 7/10 experiments for coverage, 7/10 for fault detection and 10/10 for fault-revealing sequence length.
 
 ## Related Work:
 The most closely related work employs search-based methods. Mahmood et al. introduced EvoDroid, the first search-based framework for Android testing. EvoDroid extracts the interface model (based on static analysis of manifest and XML configuration files) and a call graph model(based on code analysis by using MoDisco). Several previous approaches are based on random testing (fuzz testing), which inject arbitrary or contextual events into the apps. Monkey [36] is Google's official testing tool for Android apps, which is built into the Android platform, and therefore likely to be more widely used than any other automated testing tool for Android apps.
@@ -30,5 +30,5 @@ AndroidRipper (subsequently MobiGUITAR) builds a model using a depth-first searc
 flexible framework for implementing various state-based test strategies.
 
 ## Scope for improvement :
-- The results of Monkey and Dynadroid lacks exhaustive research. The paper has admitted this and attributes it to lack of proper debugging support.
-- The MobiGUITAR generated testcases do not add assertions in the tests which needs to be done manually.
+- The fitness valye is trivially three times the objectives and this generally assumes that the objectives are of equal importance. This might not be the case, for a developer who does not worry about the sequence lenth as long as he is able to find bugs (especially in terms of software security)
+- while choosing Hybrid exploration strategy over Random/Systematic strategies may ensure high overall coverage, it might not ensure catching more serious bugs(due to the metaheuristic nature) and hence a variant incorporating the best sides of all the strategies should have been used. 
