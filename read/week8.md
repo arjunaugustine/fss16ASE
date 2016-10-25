@@ -18,7 +18,7 @@ There are over 1.8 million apps available from the Google Play marketplace, as o
 The currently used test sequences for the Automated test tool monkey are very large. Sapienz is the first approach offering multi-objective automated Android app exploratory testing that seeks to maximise code coverage and fault revelation, while minimising the length of fault-revealing test sequences.
 
 ## Informative Visualizations:
-An abstract State-Machine for the app - Aard Dictionary, a dictionary and online Wikipedia reader is shown in the paper. It shows different states and transitions between them making it easy to identify the different transitions which led to termnation of the app.
+The results on the 68 benchmark apps were shown in a very user-friendly and detailed manner. It includes the coverage, crashes and the length of the tests. It also includes progressive coverage on benchmark apps and pairwise comparison of found crashes. Additionally, performance comparison on 10 F-Droid subjects and the Vargha-Delaney effect size are also tabulated.
 
 ## Baseline Results:
 The top 1,000 Google play apps were tested using Sapienz. It found 558 unique crashes. The crashing behaviour has been verified on real Android devices (as well as Android emulators). 14 have been confirmed to be genuine, previously undetected, faults, 6 of which have already been confirmed as fixed by their developers. These results demonstrate that Sapienz is a practical tool for Android developers as well as for researchers. Sapienz significantly outperforms (with large effect size) both the state-of-the-art technique Dynodroid and the widely-used tool, Android Monkey, in 7/10 experiments for coverage, 7/10 for fault detection and 10/10 for fault-revealing sequence length.
@@ -30,5 +30,5 @@ AndroidRipper (subsequently MobiGUITAR) builds a model using a depth-first searc
 flexible framework for implementing various state-based test strategies.
 
 ## Scope for improvement :
-- The fitness valye is trivially three times the objectives and this generally assumes that the objectives are of equal importance. This might not be the case, for a developer who does not worry about the sequence lenth as long as he is able to find bugs (especially in terms of software security)
+- The fitness value is trivially three times the objectives and this generally assumes that the objectives are of equal importance. This might not be the case, for a developer who does not worry about the sequence lenth as long as he is able to find bugs (especially in terms of software security)
 - while choosing Hybrid exploration strategy over Random/Systematic strategies may ensure high overall coverage, it might not ensure catching more serious bugs(due to the metaheuristic nature) and hence a variant incorporating the best sides of all the strategies should have been used. 
