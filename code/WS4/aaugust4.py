@@ -1,10 +1,11 @@
 #! /usr/bin/python
 
-%matplotlib inline
+# %matplotlib inline
 # All the imports
 from __future__ import print_function, division
 import pom3_ga, sys
 import pickle
+# import
 
 # TODO 1: Enter your unity ID here
 __author__ = "aaugust4"
