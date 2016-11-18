@@ -1,3 +1,4 @@
+
 class Flag(object):
   def __init__(self, id, isNegated):
     self.id = id
