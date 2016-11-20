@@ -7,7 +7,8 @@ from flag import Flag
 from constraintrepo import ConstraintRepo
 
 class XmlParser(object):
-    patFeature = ':(\S?)\s+([\w-]*)\((\w+)\)\s*\[?\d?,?(.?)\]?'
+    #patFeature = ':(\S?)\s+([\w-]*)\((\w+)\)\s*\[?\d?,?(.?)\]?'
+    patFeature = ':(\S?)\s+([\s\w-]*)\((\w+)\)\s*\[?\d?,?(.?)\]?'
 
     def getConstraintText(self, constraint):
         match = re.search(':([\w\W]*)', constraint)
