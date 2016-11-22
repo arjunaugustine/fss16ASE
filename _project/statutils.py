@@ -530,7 +530,7 @@ class Num:
         return Num(i.name + j.name,i.all + j.all)
     def quartiles(i):
         #def p(x) : return int(g(xs[x]))
-        def p(x) : return int(g(xs[x]))
+        def p(x) : return (g(xs[x]))
         i.median()
         xs = i.all
         n  = int(len(xs)*0.25)
