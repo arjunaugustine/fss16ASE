@@ -272,7 +272,9 @@ Each of the above mentioned graphs is there for each of the 6 variants that we a
 
 * The SPEA2 algorithm prunes data from the more clustered regions of the graph and retains the points on the pareto frontier that are distant from other points. This increases the variability in the solutions. However when SPEA2 is used with binary domination, since most of the models have multiple objectives domination functions often do not return a clear winner. This leads to the fitness function being dominated by the euclidean distance than by the regular fitness count (the number of people dominated by the point under consideration). This in turn led to some graphs with solutions split across the pareto frontier. 
 
-The following part shows the output from the stats.py for the project implementation with details : 
+The following part shows the statistical performance output using stats.py
+Project implementation details : 
+
 * Population size = 200,
 * Number of runs = 250,
 * Number of models : 9,
