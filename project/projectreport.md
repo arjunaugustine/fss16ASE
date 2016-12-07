@@ -9,15 +9,15 @@ This project looks at a couple of models with varying number of decisions and ob
 
 ##About the Model(s)
 This project looks at the following nine models.
-###Smart Home
-###Bike
-###Classic Shell
-###Arbol
-###Enterprise System
-###FM Test
-###Banking Software
-###Car
-###Billing
+*Smart Home
+*Bike
+*Classic Shell
+*Arbol
+*Enterprise System
+*FM Test
+*Banking Software
+*Car
+*Billing
 
 These models vary in the number of decisions and cross tree constraints and the algorithms aim at optimizing them with respect to the following objectives (expected direction in parantheses)
 
