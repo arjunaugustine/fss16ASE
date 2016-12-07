@@ -72,16 +72,10 @@ The following sequence diagram shows how the constraint repository class makes u
 </p>
 
 
-###Feature Tree
-
-
-###Constraint Repository
-  
-  
 ##Motivation
 
 ##Algorithms Used
-
+In this project we have tried different variants of genetic algorithms such as the regular GA, the NSGA II and the SPEA II. We have also used two dominance functions, the Binary Domination and the Continuous Domination with each of the above mentioned algorithms. For the 6 resulting variations, we have considered 200 members (populations size) for 250 generations. The different variants are compared using stats.py for comparison in terms of Spead and IGD (Median and IQR). 
 
 ###GA
 
