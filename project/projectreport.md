@@ -72,8 +72,6 @@ The following sequence diagram shows how the constraint repository class makes u
 </p>
 
 
-##Motivation
-
 ##Algorithms Used
 In this project we have tried different variants of genetic algorithms such as the regular GA, the NSGA II and the SPEA II. We have also used two dominance functions, the Binary Domination and the Continuous Domination with each of the above mentioned algorithms. For the 6 resulting variations, we have considered 200 members (populations size) for 250 generations. The different variants are compared using stats.py for comparison in terms of Spread and IGD (Median and IQR). These algorithms are briefly discussed below (taken from lecture slides)
 
@@ -109,7 +107,7 @@ and the algorithm is as shown below :
   <img src="/project/img/spea2.png?raw=true" alt="Sequence Diagram" width=600/>
 </p>
 
-##Observations
+##Output
 
 Like already discussed above we have 3 objectives to optimize for all the SPLOT models in this project. For every model, we have Cost vs. Features, Cost vs. Constraints and Constraints vs. Features graphs in 2D and Cost vs. Constraint vs. Features graph in 3D. The 2D graphs are to better visualize the pareto frontier (we might not always have a better looking pareto frontier because of the third objective not being represented in the graph). 
 Each of the above mentioned graphs is there for each of the 6 variants that we are running here. (GA with CDOM, GA with BDOM, NSGA II with BDOM, NSGA II with CDOM, SPEA II with BDOM, SPEA II with CDOM). Following are various algorithms for the Arbol model.
@@ -267,6 +265,19 @@ Each of the above mentioned graphs is there for each of the 6 variants that we a
 
 
 ##Observations
+
+* There are a couple of observations we made from the output and the graphs above. In almost all of the models, the good old GA with Binary Domination fell short of a major goal. To produce models that have zero constriant violations. For the purpose of this project, the number of constraints violated was just another objective and was not wired into the validity of a point. However, a product that violates no constraints is really a desirable outcome.This however was mitigated in two ways - Either by changing the algorithm to the better counterparts - nsga2 and spea2 or by changin the binary domination to continuous domination.
+
+* One thing is invariably obvious in all the models and their output. The algorithms that run the continuous domination function tend to have the solutions kind of clustered together and not spread across evenly as binary domination would have.
+
+* The SPEA2 algorithm prunes data from the more clustered regions of the graph and retains the points on the pareto frontier that are distant from other points. This increases the variability in the solutions. However when SPEA2 is used with binary domination, since most of the models have multiple objectives domination functions often do not return a clear winner. This leads to the fitness function being dominated by the euclidean distance than by the regular fitness count (the number of people dominated by the point under consideration). This in turn led to some graphs with solutions split across the pareto frontier. 
+
+The following part shows the output from the stats.py for the project implementation with details : 
+* Population size = 200,
+* Number of runs = 250,
+* Number of models : 9,
+* Number of variants = Number of algorithms x Number of dominance functions = 6, 
+* Number of repeats = 10.
 
 
 ##Learnings
