@@ -109,7 +109,161 @@ and the algorithm is as shown below :
   <img src="/project/img/spea2.png?raw=true" alt="Sequence Diagram" width=600/>
 </p>
 
-##Graphs
+##Observations
+
+Like already discussed above we have 3 objectives to optimize for all the SPLOT models in this project. For every model, we have Cost vs. Features, Cost vs. Constraints and Constraints vs. Features graphs in 2D and Cost vs. Constraint vs. Features graph in 3D. The 2D graphs are to better visualize the pareto frontier (we might not always have a better looking pareto frontier because of the third objective not being represented in the graph). 
+Each of the above mentioned graphs is there for each of the 6 variants that we are running here. (GA with CDOM, GA with BDOM, NSGA II with BDOM, NSGA II with CDOM, SPEA II with BDOM, SPEA II with CDOM). Following are various algorithms for the Arbol model.
+
+###Cost vs. Constraints
+####GA with BDOM
+
+<p align="center">
+  <img src="/project/img/4.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####GA with CDOM
+
+<p align="center">
+  <img src="/project/img/2.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/3.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/1.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/6.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/5.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+###Constraints vs. Features
+####GA with BDOM
+
+<p align="center">
+  <img src="/project/img/2_5.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####GA with CDOM
+
+<p align="center">
+  <img src="/project/img/2_1.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/2_3.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/2_4.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/2_2.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/2_6.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+###Features vs. Cost
+
+####GA with BDOM
+
+<p align="center">
+  <img src="/project/img/3_3.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####GA with CDOM
+
+<p align="center">
+  <img src="/project/img/3_6.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/3_5.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/3_2.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/3_4.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/3_1.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+
+###Cost vs. Constraints vs. Features
+
+####GA with BDOM
+
+<p align="center">
+  <img src="/project/img/gabdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####GA with CDOM
+
+<p align="center">
+  <img src="/project/img/gacdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/spea2bdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####SPEA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/spea2cdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with BDOM
+
+<p align="center">
+  <img src="/project/img/nsga2bdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+
+####NSGA2 with CDOM
+
+<p align="center">
+  <img src="/project/img/nsga2cdom.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
 
 
 ##Observations
