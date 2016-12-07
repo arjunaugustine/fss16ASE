@@ -9,8 +9,8 @@ This project looks at a couple of models with varying number of decisions and ob
 
 ##About the Model(s)
 This project looks at the following nine models.
-*Smart Home
-*Bike
+* Smart Home
+* Bike
 *Classic Shell
 *Arbol
 *Enterprise System
