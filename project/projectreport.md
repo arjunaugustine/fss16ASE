@@ -264,7 +264,7 @@ Each of the above mentioned graphs is there for each of the 6 variants that we a
 </p>
 
 
-##Observations
+##Observations on Graphs
 
 * There are a couple of observations we made from the output and the graphs above. In almost all of the models, the good old GA with Binary Domination fell short of a major goal. To produce models that have zero constriant violations. For the purpose of this project, the number of constraints violated was just another objective and was not wired into the validity of a point. However, a product that violates no constraints is really a desirable outcome.This however was mitigated in two ways - Either by changing the algorithm to the better counterparts - nsga2 and spea2 or by changin the binary domination to continuous domination.
 
@@ -362,3 +362,25 @@ Project implementation details :
 <p align="center">
   <img src="/project/img/bikeiqr.png?raw=true" alt="Sequence Diagram" width=600/>
 </p>
+
+
+
+##Observations on statistical comparison
+
+* Even though observations like these vary from model to model, nsga2 with cdom is a clear winner over other 5 variants for most of these models. The choice of cdom is great for the algorithms, but the time complexity - performance tradeoff needs to be studied further for this. The Spread (Median) comparison shows that the bdom variants of all the algorithms have better spread. The Banking Software Model is a very good example to study this trend. Also on the same note, NSGA II fares well with cdom compared to SPEA II with cdom. This is very evident in the Billing model. This trend is however not maintained in the Car model.
+
+* The IGD (Median) on the other hand is more for the ga algorithm irrespective of the dominance functions that were used. This trend is fairly uniform across all the models.
+
+* When it comes to the Spread (IQR) comparison, we find high variability in values as are visible from the percentile charts and histograms. If you take the Billing model for example, the Spread is value is better for the BDOM algorithms, but NSGA II with cdom deserves a special mention here because it does just as well as its bdom counterpart. However for most other models, the spread is really high for the bdom algorithms especially the NSGA II and SPEA II versions. It would Classic Shell and Billing models are anomalies here.
+
+* The IGD (IQR) comparison unfortunately does not give us any conclusive trends. The models happen to be so different that the values do not show a specific trend. However GA with BDOM consistently has higher IGD (IQR) values in all the models that were tested.
+
+##Lessons, Mistakes, Future
+
+* CDOM function implementation requires a special mention here. The ranking scheme of fast non dominated sort in NSGA II assumes transitivity of dominance. It says when the rank 0 point exits the system (after decrementing the rank each of the points that it dominates by one) it expects automatically that the next best in the system will have a rank 0. This might not always be the case. This issue made the NSGA II algorithm run in infinite loops. This was later fixed by considering the minimum rank of all the remaining points in the frontier and not looking for rank 0. Additionally we did not need to decrement the rank of every other point dominated by the rank 0 point. 
+
+* The fitness function that is used in SPEA II takes into account the euclidean distance as well as the good old regular fitness by dominance count. This however proved really time consuming for not a much better result. The tradeoff was really not in favor of the new fitness function. So in this project the SPEA II version uses this fitness regime only as a secondary sorting mechnism for pruning from a clustered areas in the frontier. This considerably improved the performance. 
+
+* SPEA II in combination with BDOM sometimes gives unexpected results, especially for models with very many objectives. This was because BDOM is indecisive when it comes to multiple objectives and in such a case the fitness function is overwhelmingly just a Euclidean Distance function. This sometimes divides the pareto frontier in a bad shape.
+
+* As a future work, we could implement early termination technique into the number of runs for this GA variants measuring performance every step. Additionally, the point evaluation can be made faster by evaluating every node statically by introducing some pre-processing. 
