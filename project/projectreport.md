@@ -34,25 +34,42 @@ The following table depicts the details for each of the nine models.
 And below is a feature diagram (from the Linux model)
 
 <p align="center">
-  <img src="/project/img/feature_diagram.png?raw=true" alt="All the models image" width=600/>
+  <img src="/project/img/feature_diagram.png?raw=true" alt="feature diagram" width=600/>
 </p>
 
 and one of the features expanded into further finer features.
 
 <p align="center">
-  <img src="/project/img/feature_expanded.png?raw=true" alt="All the models image" width=600/>
+  <img src="/project/img/feature_expanded.png?raw=true" alt="one feature expanded" width=600/>
 </p>
 
 The SPLOT models represent the features and their dependencies and constrainsts using an xml. For a model that represents mobile phone the feature tree and the corresponding xml can be represented as below.
 
 <p align="center">
-  <img src="/project/img/mobilephone_featuretree.png?raw=true" alt="All the models image" width=600/>
+  <img src="/project/img/mobilephone_featuretree.png?raw=true" alt="feature tree for mobile phone" width=600/>
 </p>
 
 <p align="center">
-  <img src="/project/img/mobile_xml.png?raw=true" alt="All the models image" width=600/>
+  <img src="/project/img/mobile_xml.png?raw=true" alt="mobile phone xml" width=300/>
 </p>
 ###XML Parser
+In this project we developed a custom xml parser that reads an xml configuration file and populates the features, constraints, the cost, the presence(absence) of features etc for any model. The parser sets up any model in a way that a genetic algorithm can create points of, that we later evaluate and compare in order to select or discard as good or bad candidates for future generations of iterations. There is more or less a direct mapping between the feature tree and the tree that is coded up as part of the parsing of it. The following is a class diagram of a sample tree that gets parsed.
+
+<p align="center">
+  <img src="/project/img/featuretree_classdiagram.png?raw=true" alt="Feature Tree Class Diagram" width=600/>
+</p>
+
+Cross tree constraints, much like the cost associated with the product and the number of features that get implemented is another objective that we try to optimize(minimize). To evaluate the constraints better, we have created a constraint repository class that parses the constraint section of the xml and creates Flag objects and Constraint objects that can be evaluated easily based on the decisions a point is randomly assigned. The follwing class diagram represents the constraints. 
+
+<p align="center">
+  <img src="/project/img/constraints_classdiagram.png?raw=true" alt="Constrints Class Diagram" width=600/>
+</p>
+
+The following sequence diagram shows how the constraint repository class makes use of the constraint class and Flag class to evaluate the number of constraints which is a very important objective for these models.
+
+<p align="center">
+  <img src="/project/img/sequence_diagram.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
 
 
 ###Feature Tree
