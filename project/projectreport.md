@@ -11,24 +11,24 @@ This project looks at a couple of models with varying number of decisions and ob
 This project looks at the following nine models.
 * Smart Home
 * Bike
-*Classic Shell
-*Arbol
-*Enterprise System
-*FM Test
-*Banking Software
-*Car
-*Billing
+* Classic Shell
+* Arbol
+* Enterprise System
+* FM Test
+* anking Software
+* Car
+* Billing
 
 These models vary in the number of decisions and cross tree constraints and the algorithms aim at optimizing them with respect to the following objectives (expected direction in parantheses)
 
-###Number of Features Implemented (Maximize)
-###Number of Constraints Violated (Minimize)
-###Total Cost of Implementation (Minimize)
+* Number of Features Implemented (Maximize)
+* Number of Constraints Violated (Minimize)
+* Total Cost of Implementation (Minimize)
 
 The following table depicts the details for each of the nine models.
 
 <p align="center">
-  <img src="/img/models_.png?raw=true" alt="Sublime's custom image" width=600/>
+  <img src="/img/models_.png?raw=true" alt="All the models image" width=600/>
 </p>
 
 ###XML Parser
