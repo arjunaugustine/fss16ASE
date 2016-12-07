@@ -28,7 +28,7 @@ These models vary in the number of decisions and cross tree constraints and the 
 The following table depicts the details for each of the nine models.
 
 <p align="center">
-  <img src="../bin/Block%20Diagram%20General.png?raw=true" alt="Sublime's custom image" width=600/>
+  <img src="/img/models_.png?raw=true" alt="Sublime's custom image" width=600/>
 </p>
 
 ###XML Parser
