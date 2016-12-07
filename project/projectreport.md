@@ -272,6 +272,7 @@ Each of the above mentioned graphs is there for each of the 6 variants that we a
 
 * The SPEA2 algorithm prunes data from the more clustered regions of the graph and retains the points on the pareto frontier that are distant from other points. This increases the variability in the solutions. However when SPEA2 is used with binary domination, since most of the models have multiple objectives domination functions often do not return a clear winner. This leads to the fitness function being dominated by the euclidean distance than by the regular fitness count (the number of people dominated by the point under consideration). This in turn led to some graphs with solutions split across the pareto frontier. 
 
+##Statistical Performance Comparison
 The following part shows the statistical performance output using stats.py
 Project implementation details : 
 
@@ -281,6 +282,83 @@ Project implementation details :
 * Number of variants = Number of algorithms x Number of dominance functions = 6, 
 * Number of repeats = 10.
 
-
-##Learnings
-
+####Enterprise System
+<p align="center">
+  <img src="/project/img/enterprisesys.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/enterprisesysmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/enterprisesysiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Billing
+<p align="center">
+  <img src="/project/img/billing.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/billingmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/billingiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Arbol
+<p align="center">
+  <img src="/project/img/arbol.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/arbolmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/arboliqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####FM Test
+<p align="center">
+  <img src="/project/img/fmtest.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/fmtestmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/fmtestiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Banking Software
+<p align="center">
+  <img src="/project/img/bankingsw.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/bankingswmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/bankingswiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Classic Shell
+<p align="center">
+  <img src="/project/img/classicshell.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/classicshellmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/classicshelliqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Car
+<p align="center">
+  <img src="/project/img/Car.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/carsmedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/carsiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+####Bike
+<p align="center">
+  <img src="/project/img/bike.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/bikemedian.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
+<p align="center">
+  <img src="/project/img/bikeiqr.png?raw=true" alt="Sequence Diagram" width=600/>
+</p>
