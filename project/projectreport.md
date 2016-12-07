@@ -31,6 +31,27 @@ The following table depicts the details for each of the nine models.
   <img src="/project/img/models_.png?raw=true" alt="All the models image" width=600/>
 </p>
 
+And below is a feature diagram (from the Linux model)
+
+<p align="center">
+  <img src="/project/img/feature_diagram.png?raw=true" alt="All the models image" width=600/>
+</p>
+
+and one of the features expanded into further finer features.
+
+<p align="center">
+  <img src="/project/img/feature_expanded.png?raw=true" alt="All the models image" width=600/>
+</p>
+
+The SPLOT models represent the features and their dependencies and constrainsts using an xml. For a model that represents mobile phone the feature tree and the corresponding xml can be represented as below.
+
+<p align="center">
+  <img src="/project/img/mobilephone_featuretree.png?raw=true" alt="All the models image" width=600/>
+</p>
+
+<p align="center">
+  <img src="/project/img/mobile_xml.png?raw=true" alt="All the models image" width=600/>
+</p>
 ###XML Parser
 
 
