@@ -1,11 +1,42 @@
 #Sofwtare Product Line Optimization
 
-##Introduction
+##Introduction and Overview
 
 What is SPLOT ? 
 SPLOT stands for Software Product Lines Online Tools. The primary goal of SPLOT is to put Software Product Lines research into practice through the delivery of state-of-the-art online tools targeting academics and practitioners in the field. With SPLOT one can edit, debug, analyze, configure, share and download feature models instantly. SPLOT supports the notion of feature-based interactive configuration in which users make configuration decisions over a feature model (e.g select/deselect a feature) and the configuration engine automatically propagates those decisions to enforce their consistency. This results in a backtrack-free configuration process benefiting users that are never forced to review past decisions (unless they wish to do so intentionally).
-This project looks at a couple of models with varying number of decisions and objectives and applies various genetic algorithms to find the optimal pareto frontier of solutions. It also compares the results of the genetic algorithms with different dominance functions and makes some observations as to which algorithms performs better with SPLOT models in general and some models in particular.
+This project looks at a couple of models with varying number of decisions and objectives and applies various genetic algorithms to find the optimal pareto frontier of solutions. The leaf nodes of a feature tree constitute the decisions for a model. They are populated randomly and the tree is evaluated bottom up to find the number of features implemented, the total cost of implementation and the number of constraints violated in the process. These objectives are optimized as the algorithm proceeds. It also compares the results of the genetic algorithms with different dominance functions and makes some observations as to which algorithms performs better with SPLOT models in general and some models in particular.
 
+##Source Code and Description
+
+The project source code can be found at here[https://github.com/arjunaugustine/fss16ASE/tree/master/_project]
+
+The file project.py is the executable for the project. It has dependencies on constraintrepo.py, constraint.py, flag.py, node.py, statutils.py, tree.py and xmlparser.py. 
+
+* project.py - executable
+* constraintrepo.py - Houses the Constraint Repository that evaluates the violations for a model
+* constraint.py - A single constraint is represented by this class
+* flag.py - A helper class that allows to toggle the constraints
+* node.py - A single node in the feature tree
+* statutils.py - A subset of utilities from stats.py
+* tree.py - The feature tree is represented by this class
+* xmlparser.py - This module reads an xml, parses it into the tree and the constraint repository.
+
+To run the code:
+
+Add the required model(s) in the list
+models_ = ['Bike.xml'] 
+
+Make sure the xml is present in the directory
+The repo contains the 8 models this project is tested with.
+
+Update the population size to a good value 
+pop_size=250 (default)
+
+Update the number of generations to a good value
+gens=200
+
+And run,
+run ./project.py or python project.py
 
 ##About the Model(s)
 This project looks at the following nine models.
