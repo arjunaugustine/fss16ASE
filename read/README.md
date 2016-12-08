@@ -29,7 +29,13 @@ The existing Android operating system needs to be augmented with a framework to 
 * Control how its interfaces can be used by applications that were permitted to use them, and
 * Determine at run-time, what other interfaces can they use.
 Policy enforcements by SAINT framework include:
-* Install-Time: An application declaring permission P defines the conditions under which P is granted to other applications at install-time. Conceptually, the an application requesting the permission P can be installed only if the policy for acquiring P is satisfied.
-* Run-Time: Any interaction between software components within android framework involves a caller application and a callee application. The interaction is allowed to continue only if all policies supplied by both the caller and callee are satisfied.
+* Install-Time: An application declaring permission P can be installed only if the policy for acquiring P is satisfied.
+* Run-Time: Interactions between a caller and a callee app is allowed only if policies supplied by both apps are satisfied.
 * Administrative: An administrative policy dictates how policy itself can be changed.
-* Operational: This section defines policies that detect when Saint renders an application inefficient, faulty, or inoperable, so that by restricting access to interfaces, Saint doesn't hamper utility. Past security measures that have prevented application behavior in an opaque and ambiguous way have not fared well
+* Operational: Policies that detect when Saint renders an application inefficient, to prevent Saint hampering utility.
+Saint was not compared to any other existing system since the systems for run-time validation of Security Permissions were not very developed. Frameworks which validate permissions during install time are:
+* Kirin - enforces that the permissions requested by applications are consistent with System policies.
+* Open Mobile Terminal Platform - determines an application's access rights based on its origin.
+* Symbian framework prevents unsigned applications from accessing 'protected' interfaces.
+* MIDP 2.0 Security Framework relies on the Mobile Information Device Profile implementor in giving access.
+Since there are no parallels to compare the Framework to, the paper fails to depict the impact of this new Framework. The paper does not mention any experiments conducted on this new framework.
