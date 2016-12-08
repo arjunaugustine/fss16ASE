@@ -416,3 +416,17 @@ Project implementation details :
 * SPEA II in combination with BDOM sometimes gives unexpected results, especially for models with very many objectives. This was because BDOM is indecisive when it comes to multiple objectives and in such a case the fitness function is overwhelmingly just a Euclidean Distance function. This sometimes divides the pareto frontier in a bad shape.
 
 * As a future work, we could implement early termination technique into the number of runs for this GA variants measuring performance every step. Additionally, the point evaluation can be made faster by evaluating every node statically by introducing some pre-processing. 
+
+##References
+
+* http://splot-research.org/
+* https://github.com/txt/ase16/blob/master/doc/nsga2spea2.md
+* https://www.websequencediagrams.com/
+* https://www.genmymodel.com/class-diagram-online
+* https://github.com/txt/ase16/blob/master/doc/stats.md
+* https://github.com/ase16-ta/performance
+* Marcilio Mendonca, Moises Branco, Donald Cowan. 2009. S.P.L.O.T. - Software Product Lines Online Tools
+*  Abdel Salam Sayyad, Tim Menzies, Hany Ammar. 2013. On the Value of User Preferences in Search-Based Software Engineering: A Case Study in Software Product Lines
+* Abdel Salam Sayyad, Joseph Ingram, Tim Menzies, Hany Ammar. 2013. Scalable Product Line Configuration: A Straw to Break the Camel’s Back
+ 
+
