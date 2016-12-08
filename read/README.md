@@ -46,6 +46,29 @@ Saint was not compared to any other existing system since the systems for run-ti
 Since there are no parallels to compare the Framework to, the paper fails to depict the impact of this new Framework. The paper does not mention any experiments conducted on this new framework.
 
 ### D. Reverse Engineering Finite State Machines from Rich Internet Applications
+In the last years, Rich Internet Applications (RIAs) have emerged as a new generation of web applications offering greater usability and interactivity than traditional ones. Web pages have been transformed in complex GUIs with synchronous and asynchronous interactions with the user and with the resources. The motivation of this paper stems from the differences between RIA and traditional web applications. At the presentation layer traditional web applications are form based softwares, whereas RIA's have complex asynchronous mechanisms that help them contact the server without refreshing the whole page, thanks to the AJAX engine (Indicates an approach for developing RIA's using a combination of web technologies that allow a browser to communicate with the server without refreshing the current page.). Such features in RIA make it difficult to fit them into a software model. This paper aims at reverse engineering one such application into an FSM.
+
+The subject of the experiment was an Ajax-based RIA named FilmDB that provides registered users with several functionalities for data management of a personal movie archive. The server side of this application is implemented by 99 PHP server pages (624 kBytes) that generate client pages containing several scripts (coded in Javascript) implementing a complex user interface. Moreover, FilmDB interacts with other server side resources by exploiting Ajax (XHR - XMLHttpRequest - Allows asynchronous retrieval of arbitrary data from the server) requests.
+
+Key problems: (1) to define models that are suitable for RIAs representation and (2) to define Reverse Engineering techniques for the abstraction of the proposed model.
+
+Complex interactions between the user and the RIA in the browser environment are designed and implemented in Javascript
+A simple model comprehending only pages and forms (e.g. the Conallen model) is not more suitable to describe RIAs.
+RIA interactions can be modelled as a Transition Graph, where each node is associated with a distinct Client Interface
+each edge corresponds to the raise of an event.
+In order to reconstruct the model of a RIA, a three steps process has been proposed
+
+1. The Extraction step is obtained by dynamic analysis
+2. A user navigates the RIA while it is monitored. Probes applied externally to the DOM structure allow the tracing of the complete cycle of event raising/handling with a non-invasive approach. For each observed Client Interface the complete set of tags, attributes and event handlers is stored
+3. In this step the retrieved information are analyzed in order to abstract the FSM Model of the RIA
+Two possible criteria to cluster together a pair of Client Interfaces have been proposed:
+(1) Criterion C1 considers equivalent two Client Interfaces if the corresponding DOM structures include the same set of DOM elements with the same registered event listeners and handlers, and
+(2) Criterion C2 considers equivalent two Client Interfaces if the criterion C1 is satisfied and the set of Http requests and time event listeners are equivalent, too. 
+A Concept Assignment step, assisted by an expert, must be carried in order to assess if the applied equivalence criterion has been able to cluster together Client Interfaces corresponding to actual Interaction States
+
+This paper presented the initial results of a research project that aims at defining and validating techniques for reverse engineering software representation models from Rich Internet Applications. The proposed clustering criteria seems to be useful for the abstraction of a compact behaviour model of the RIA interfaces.
+Further criteria that are able to reduce the Concept Assignment step effort will be proposed in future. The suitability of the obtained model to specific tasks, such as GUI testing, quality evaluation, migration to services will be explored in future works.
+
 
 
 ### E. Systematic Testing for Resource Leaks in Android Applications
