@@ -8,7 +8,7 @@ This project looks at a couple of models with varying number of decisions and ob
 
 ##Source Code and Description
 
-The project source code can be found at here[https://github.com/arjunaugustine/fss16ASE/tree/master/_project]
+The project source code can be found [here](https://github.com/arjunaugustine/fss16ASE/tree/master/_project)
 
 The file project.py is the executable for the project. It has dependencies on constraintrepo.py, constraint.py, flag.py, node.py, statutils.py, tree.py and xmlparser.py. 
 
@@ -33,7 +33,7 @@ Update the population size to a good value
 pop_size=250 (default)
 
 Update the number of generations to a good value
-gens=200
+gens=200(default)
 
 And run,
 run ./project.py or python project.py
