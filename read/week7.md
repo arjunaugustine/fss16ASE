@@ -1,4 +1,4 @@
-# MobiGUITAR Automated Model-Based Testing of Mobile Apps
+# [MobiGUITAR Automated Model-Based Testing of Mobile Apps](http://cvs.cs.umd.edu/~atif/papers/MobiGUITARIEEESoftware2014.pdf)
 
 ## Key Words
 ###Event Flow Graph (EFG): 
