@@ -401,6 +401,12 @@ Project implementation details :
 
 * The IGD (IQR) comparison unfortunately does not give us any conclusive trends. The models happen to be so different that the values do not show a specific trend. However GA with BDOM consistently has higher IGD (IQR) values in all the models that were tested.
 
+##Inference
+
+* For SPLOT models, NSGA with cdom gives better performance than all the other variants that were tried.
+* CDOM with the three algorithms performs better than BDOM with the algorithms, more so in SPEA (when the number of objectives is more) amd less so in GA because the performance improvement in case of GA with cdom compared to GA with bdom is not as good as in case of the other two algorithms.
+* A SAT solver along with an early termination mechanism can make the runs more efficient and less time consuming. 
+
 ##Lessons, Mistakes, Future
 
 * CDOM function implementation requires a special mention here. The ranking scheme of fast non dominated sort in NSGA II assumes transitivity of dominance. It says when the rank 0 point exits the system (after decrementing the rank each of the points that it dominates by one) it expects automatically that the next best in the system will have a rank 0. This might not always be the case. This issue made the NSGA II algorithm run in infinite loops. This was later fixed by considering the minimum rank of all the remaining points in the frontier and not looking for rank 0. Additionally we did not need to decrement the rank of every other point dominated by the rank 0 point. 
