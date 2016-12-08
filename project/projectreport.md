@@ -23,20 +23,15 @@ The file project.py is the executable for the project. It has dependencies on co
 
 To run the code:
 
-Add the required model(s) in the list
-models_ = ['Bike.xml'] 
+* Add the required model(s) in the list : models_ = ['Bike.xml', 'Car.xml'] 
 
-Make sure the xml is present in the directory
-The repo contains the 8 models this project is tested with.
+* Make sure the xml is present in the directory : The repo contains the 8 models this project is tested with.
 
-Update the population size to a good value 
-pop_size=250 (default)
+* Update the population size to a good value : pop_size=250 (default)
 
-Update the number of generations to a good value
-gens=200(default)
+* Update the number of generations to a good value : gens=200(default)
 
-And run,
-run ./project.py or python project.py
+* And run : ./project.py or python project.py
 
 ##About the Model(s)
 This project looks at the following nine models.
